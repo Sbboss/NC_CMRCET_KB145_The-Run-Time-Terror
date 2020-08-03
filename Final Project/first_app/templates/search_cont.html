@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+    <h1>SEARCH HERE...✌</h1>
+    <h2 style="position: absolute; left: 90%; top: 10%;">{{ n_srch }}</h2>
+    <h5 style="color:white; position: absolute; left: 85%; top: 15%;">Searches Found</h5>
+<br>
+        <form method="POST" >
+            {% csrf_token %}
+            <div class=container>
+                <input class="form-control" type="search" name="srch_box" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+        <p></p>`
+
+    {% if img_arr %}
+        <div style="width: 1340px; height: 500px; overflow-x:scroll; padding: 5px; display:inline-block; float:left; " >
+            <div id="slider4" class="text-center">
+                {% for i in img_arr %}
+                <div class="slide-img">
+                    <img src={{ i }}>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
